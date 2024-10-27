@@ -29,8 +29,8 @@ document.getElementById('login').addEventListener('click', () => {
 // Once we have the access token, enable the app
 const accessToken = getAccessTokenFromUrl();
 if (accessToken) {
-    document.getElementById('login').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
+    document.getElementById('login-section').classList.add('hidden');
+    document.getElementById('app').classList.remove('hidden');
 }
 
 const moodToTrackFeatures = (mood) => {
@@ -45,7 +45,7 @@ const moodToTrackFeatures = (mood) => {
 
 // Create the playlist based on the mood
 document.getElementById('create-playlist').addEventListener('click', async () => {
-    const mood = document.getElementById('mood').value;
+    const mood = document.getElementById('mood').value.trim();
     if (!mood) {
         alert('Please enter a mood!');
         return;
@@ -84,7 +84,7 @@ document.getElementById('create-playlist').addEventListener('click', async () =>
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    name: `Mood Playlist: ${mood}`,
+                    name: `MoodWave: ${mood}`,
                     public: true
                 })
             }
@@ -114,16 +114,11 @@ document.getElementById('create-playlist').addEventListener('click', async () =>
 });
 
 document.getElementById('logout').addEventListener('click', () => {
-    // Clear the local access token (assuming it's stored in localStorage or sessionStorage)
     localStorage.removeItem('spotifyAccessToken');
     sessionStorage.removeItem('spotifyAccessToken');
-
-    // Optionally, redirect to Spotify's logout page
     window.location.href = 'https://accounts.spotify.com/logout';
     
-    // Optionally, redirect back to your app's login page after a few seconds
     setTimeout(() => {
         window.location.href = 'http://localhost:5500';  // Adjust to your app's base URL
     }, 1000);  // 1-second delay to ensure logout completes
 });
-

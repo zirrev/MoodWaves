@@ -1,0 +1,114 @@
+/* Importing the "Circular Std" font as a close alternative to Spotify's "Circular" font */
+@import url('https://fonts.googleapis.com/css2?family=Circular+Std:wght@400;700&display=swap');
+
+/* Spotify Color Palette */
+:root {
+    --spotify-green: #1DB954;
+    --spotify-black: #191414;
+    --spotify-dark-gray: #282828;
+    --spotify-light-gray: #B3B3B3;
+    --spotify-white: #FFFFFF;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling the body */
+body {
+    font-family: 'Circular Std', 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--spotify-black);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--spotify-white);
+}
+
+.container {
+    background-color: var(--spotify-dark-gray);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: var(--spotify-white);
+}
+
+/* Hidden class to toggle visibility */
+.hidden {
+    display: none;
+}
+
+/* Input field styling */
+.input-field {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    background-color: var(--spotify-black);
+    color: var(--spotify-white);
+    outline: none;
+}
+
+.input-field::placeholder {
+    color: var(--spotify-light-gray);
+}
+
+/* Buttons styling */
+.btn-primary, .btn-secondary {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--spotify-green);
+    color: var(--spotify-black);
+}
+
+.btn-primary:hover {
+    background-color: #1ed760;
+}
+
+.btn-secondary {
+    background-color: var(--spotify-light-gray);
+    color: var(--spotify-dark-gray);
+}
+
+.btn-secondary:hover {
+    background-color: #a9a9a9;
+}
+
+/* Message Styling */
+.result-message {
+    margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--spotify-green);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+}

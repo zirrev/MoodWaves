@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Mood Playlist</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        #login { display: block; margin: 20px; }
-        #app { display: none; }
-    </style>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the new stylesheet -->
 </head>
 <body>
-    <h1>Create a Spotify Playlist Based on Your Mood</h1>
-    <button id="login">Login with Spotify</button>
+    <div class="container">
+        <h1>Mood Wave</h1>
+        <div id="login-section">
+            <button id="login" class="btn-primary">Login with Spotify</button>
+        </div>
 
-    <div id="app">
-        <input type="text" id="mood" placeholder="Enter your mood (e.g., happy, sad)" />
-        <button id="create-playlist">Create Playlist</button>
-        <button id="logout">Log Out and Switch Account</button>
-        <div id="result"></div>
+        <div id="app" class="hidden">
+            <input type="text" id="mood" class="input-field" placeholder="Enter your mood (e.g., happy, sad)" />
+            <div class="button-group">
+                <button id="create-playlist" class="btn-primary">Create Playlist</button>
+                <button id="logout" class="btn-secondary">Log Out and Switch Account</button>
+            </div>
+            <div id="result" class="result-message"></div>
+        </div>
     </div>
 
     <script src="index.js"></script>
